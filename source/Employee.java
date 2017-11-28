@@ -6,6 +6,12 @@ public class Employee {
     protected double salary;
     protected Calendar retirementDate;
 
+    public Employee(int id, String name, double salary, Calendar retirementDate){
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+        this.retirementDate = retirementDate;
+    }
     public int getId() {
         return id;
     }

@@ -9,6 +9,13 @@ public class Application {
     protected float price;
     protected List<Employee> developmentTeam;
 
+    public Application(int productCode, String name, float versionNumber, float price, List<Employee> developmentTeam){
+        this.productCode = productCode;
+        this.name = name;
+        this.versionNumber = versionNumber;
+        this.price = price;
+        this.developmentTeam = developmentTeam;
+    }
 
     public void printDevelopmentTeam(){
         for(Employee employee: developmentTeam){
@@ -32,5 +39,9 @@ public class Application {
 
     public float getPrice() {
         return price;
+    }
+
+    public List<Employee> getDevelopmentTeam() {
+        return developmentTeam;
     }
 }
