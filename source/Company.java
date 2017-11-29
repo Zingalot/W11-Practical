@@ -40,7 +40,7 @@ public class Company {
         return totalCost;
     }
 
-    public void printReitiringEmployees(){
+    public void printRetiringEmployees(){
         for(Application product: products){
             for(Employee employee: product.getDevelopmentTeam()){
                 if(employee.retirementDate.getTimeInMillis()/ MILLISECONDS_TO_DAYS - currentTime.getTimeInMillis()/ MILLISECONDS_TO_DAYS <= DAYS_IN_A_YEAR){
@@ -65,7 +65,7 @@ public class Company {
 
     public void mostExperiencedCS(){
         int x = 0;
-        CustomerService mostExperienced;
+        CustomerService mostExperienced = null;
         for(Application product: products){
             for(Employee employee: product.getDevelopmentTeam()){
                 if(employee instanceof CustomerService){
@@ -75,6 +75,12 @@ public class Company {
                     }
                 }
             }
+        }
+        if(mostExperienced != null) {
+            System.out.println(mostExperienced.name);
+        }
+        else{
+            System.out.println("No Customer Service Workers!");
         }
     }
 }
