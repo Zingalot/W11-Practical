@@ -9,6 +9,7 @@ public class Application {
     protected float versionNumber;
     protected float price;
     protected ArrayList<Employee> developmentTeam = new ArrayList<Employee>();
+    protected CustomerService manager;
 
     public Application(int productCode, String name, float versionNumber, float price, ArrayList<Employee> developmentTeam){
         this.productCode = productCode;
@@ -16,6 +17,11 @@ public class Application {
         this.versionNumber = versionNumber;
         this.price = price;
         this.developmentTeam = developmentTeam;
+        for(Employee employee: developmentTeam){
+            if(employee instanceof CustomerService){
+                this.manager = (CustomerService)employee;
+            }
+        }
     }
 
     public void printDevelopmentTeam(){
