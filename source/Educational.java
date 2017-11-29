@@ -1,14 +1,15 @@
-import java.util.List;
+import java.util.*;
 
 public class Educational extends Application{
     private String educationLevel;
     private float academicDiscount;
-    private float academicPrice = academicDiscount*this.price;
+    private float academicPrice;
 
-    public Educational(int productCode, String name, float versionNumber, float price, List<Employee> developmentTeam, String educationLevel, float academicDiscount){
+    public Educational(int productCode, String name, float versionNumber, float price, ArrayList<Employee> developmentTeam, String educationLevel, float academicDiscount){
         super(productCode, name, versionNumber, price, developmentTeam);
         this.educationLevel = educationLevel;
         this.academicDiscount = academicDiscount;
+        this.academicPrice = ((100-academicDiscount)/100)*this.price;
     }
 
     public String getEducationlevel() {
@@ -17,6 +18,10 @@ public class Educational extends Application{
 
     public float getAcademicDiscount() {
         return academicDiscount;
+    }
+
+    public void printAcademicPrice() {
+        System.out.println(academicPrice);
     }
 
 }

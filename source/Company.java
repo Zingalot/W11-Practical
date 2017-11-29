@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Company {
     private String name;
-    private List<Application> products;
-    private Calendar currentTime;
+    private ArrayList<Application> products = new ArrayList<Application>();
+    private Calendar currentTime = Calendar.getInstance();
     private final long MILLISECONDS_TO_DAYS = 1000*3600*24;
     private final int DAYS_IN_A_YEAR = 365;
 
@@ -16,9 +16,11 @@ public class Company {
     }
 
     public void printProductList(){
+        int x = 1;
         for(Application item: products){
-            System.out.print(item.getName());
-            System.out.print(item.getPrice());
+            System.out.println("Product #" + x + ": " + item.getName());
+            System.out.println("Price: £" + item.getPrice());
+            x++;
         }
     }
 

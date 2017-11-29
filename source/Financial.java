@@ -1,7 +1,8 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Financial extends Application{
-    public Financial(int productCode, String name, float versionNumber, float price, List<Employee> developmentTeam){
+    public Financial(int productCode, String name, float versionNumber, float price, ArrayList<Employee> developmentTeam){
         super(productCode, name, versionNumber, price, developmentTeam);
     }
 }
