@@ -1,4 +1,5 @@
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -7,10 +8,24 @@ public class Application {
     protected String name;
     protected float versionNumber;
     protected float price;
-    protected List<Employee> developmentTeam;
+    protected ArrayList<Employee> developmentTeam = new ArrayList<Employee>();
+    protected CustomerService manager;
 
+    public Application(int productCode, String name, float versionNumber, float price, ArrayList<Employee> developmentTeam){
+        this.productCode = productCode;
+        this.name = name;
+        this.versionNumber = versionNumber;
+        this.price = price;
+        this.developmentTeam = developmentTeam;
+        for(Employee employee: developmentTeam){
+            if(employee instanceof CustomerService){
+                this.manager = (CustomerService)employee;
+            }
+        }
+    }
 
     public void printDevelopmentTeam(){
+        System.out.println("Development Team for " + this.name);
         for(Employee employee: developmentTeam){
             System.out.println("Name: " + employee.name);
             System.out.println("Retirement Date: " + DATE_FORMAT.format(employee.retirementDate.getTime()));
@@ -32,5 +47,9 @@ public class Application {
 
     public float getPrice() {
         return price;
+    }
+
+    public ArrayList<Employee> getDevelopmentTeam() {
+        return developmentTeam;
     }
 }
