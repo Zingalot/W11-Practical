@@ -41,25 +41,37 @@ public class Company {
     }
 
     public void printRetiringEmployees(){
+        boolean foundRetiringEmployee = false;
         for(Application product: products){
             for(Employee employee: product.getDevelopmentTeam()){
-                if(employee.retirementDate.getTimeInMillis()/ MILLISECONDS_TO_DAYS - currentTime.getTimeInMillis()/ MILLISECONDS_TO_DAYS <= DAYS_IN_A_YEAR){
+                if(employee.retirementDate.getTimeInMillis()/MILLISECONDS_TO_DAYS - currentTime.getTimeInMillis()/MILLISECONDS_TO_DAYS <= DAYS_IN_A_YEAR){
+                    foundRetiringEmployee = true;
                     System.out.println(employee.getName());
                     System.out.println(employee.getSalary());
                 }
             }
 
         }
+        if(!foundRetiringEmployee){
+            System.out.println("No employees retiring in less than a year");
+        }
     }
 
     public void printApplicationsInGenre(String genre){
-        System.out.println("The Applications in genre " + genre + " are: ");
+        boolean foundInGenre = false;
         for(Application product: products){
             if(product instanceof Entertainment){
                 if(((Entertainment) product).getGenre().equals(genre)){
+                    if(!foundInGenre){
+                        System.out.println("The Applications in genre " + genre + " are: ");
+                    }
+                    foundInGenre = true;
                     System.out.println(product.getName());
                 }
             }
+        }
+        if(!foundInGenre){
+            System.out.println("No applications in that genre");
         }
     }
 

@@ -3,7 +3,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class SoftwareDeveloper extends Employee {
-    private ArrayList<String> skills = new ArrayList<String>();
+    private ArrayList<String> skills = new ArrayList<>();
 
     public SoftwareDeveloper(int id, String name, double salary, int day, int month, int year, ArrayList<String> skills){
         super(id, name, salary, day, month, year);
@@ -14,7 +14,7 @@ public class SoftwareDeveloper extends Employee {
         skills.add(skill);
     }
 
-    public List<String> getSkills() {
+    public ArrayList<String> getSkills() {
         return skills;
     }
 }
